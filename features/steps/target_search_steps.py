@@ -2,8 +2,6 @@ from selenium.webdriver.common.by import By
 from behave import given, when, then
 from time import sleep
 
-from features.tests.home_work2 import expected_result, actual_result
-
 
 @given('Open target main page')
 def open_main(context):
@@ -27,7 +25,7 @@ def verify_search_results(context):
 #Homework #3  Test for clicks on the cart
 @when('Click on Cart icon')
 def click_cart(context):
-    context.driver.find_element(By.CSS_SELECTOR, "use[href='/icons/Cart.svg#Cart']").click()
+    context.driver.find_element(By.XPATH, "//a[@data-test='@web/CartLink']").click()
 
 
 @then('Verify "Your cart is empty" message is shown')
@@ -40,7 +38,7 @@ def verify_your_cart_is_empty(context):
 # Test navigate to Sign in form
 @when ('Click Sign in')
 def click_sign_in(context):
-    context.driver.find_element(By.CSS_SELECTOR, "a[id='account-sign-in']").click()
+    context.driver.find_element(By.ID, "account-sign-in").click()
 
 
 @then ('From right side navigation menu, click Sign in')

@@ -41,8 +41,6 @@ driver.find_element(By.CSS_SELECTOR, "[data-module-type='ProductListGrid'] h2")
 
 # Homework #3 CSS Locators/ Create Account on Amazon.com (Registration)
 
-#driver.get("https://www.amazon.com/")
-
 # Amazon logo
 driver.find_element(By.CSS_SELECTOR, ".a-section.a-padding-medium")
 
