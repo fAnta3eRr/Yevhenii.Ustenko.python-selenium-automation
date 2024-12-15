@@ -4,3 +4,11 @@ Feature: Test for clicks on the cart
     Given Open target main page
     When Click on Cart icon
     Then Verify "Your cart is empty" message is shown
+
+  Scenario: User add a product to cart
+    Given Open target main page
+    When Search for tide
+    And Click add to cart button
+    And Confirm Add to Cart from side Navigation
+    And Open Cart Page
+    Then Verify cart has at list 1 item(s)
