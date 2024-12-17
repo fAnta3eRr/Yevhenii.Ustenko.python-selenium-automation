@@ -27,6 +27,7 @@ def verify_your_cart_is_empty(context):
 
 @when ('Click add to cart button')
 def click_add_to_cart(context):
+    sleep(5)
     context.driver.wait.until(EC.visibility_of_element_located(CLICK_TO_CART_BUTTON)).click()
 
 
@@ -52,9 +53,9 @@ def verify_cart_has_item(context, amount):
     assert amount in cart_page, f"Expected {amount} items but got {cart_page}"
 
 
-@then ('Verify cart has correct product')
-def verify_cart_has_correct_product(context):
+@then ('Verify cart has correct {product}')
+def verify_cart_has_correct_product(context, product):
     actual_name = context.driver.find_element(*PRODUCT_NAME_IN_CART).text
     print(f'Actual product name: {actual_name}')
-    print(f'Product stored earlier: {context.product_name}')
-    assert context.product.name in actual_name, f"Actual product name {context.product_name} but got {actual_name}"
+    print(f'Product stored earlier: {product}')
+    assert product.lower() in actual_name.lower(), f"Expected product name {product} but got {actual_name}"

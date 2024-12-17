@@ -5,6 +5,7 @@ from time import sleep
 
 COLOR_OPTIONS = (By.CSS_SELECTOR, "div[aria-label='Carousel'] li img")
 SELECTED_COLOR = (By.CSS_SELECTOR, "[data-test='@web/VariationComponent'] div")
+SELECT_SHOE_COLOR = (By.CSS_SELECTOR, "[data-test='@web/VariationComponent'] :nth-child(5)" )
 
 
 @given('Open target product {product_id} page')
@@ -22,7 +23,7 @@ def click_and_verify_colors(context):
     for color in colors:
         color.click()
 
-        selected_color = context.driver.find_element(*SELECTED_COLOR).text  # 'Color\nBlack'
+        selected_color = context.driver.find_element(*SELECT_SHOE_COLOR).text  # 'Color\nBlack'
         print('Current color', selected_color)
 
         selected_color = selected_color.split('\n')[1]  # remove 'Color\n' part, keep Black'
