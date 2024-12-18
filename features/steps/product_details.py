@@ -5,7 +5,7 @@ from time import sleep
 
 COLOR_OPTIONS = (By.CSS_SELECTOR, "div[aria-label='Carousel'] li img")
 SELECTED_COLOR = (By.CSS_SELECTOR, "[data-test='@web/VariationComponent'] div")
-SELECT_SHOE_COLOR = (By.CSS_SELECTOR, "[data-test='@web/VariationComponent'] :nth-child(5)" )
+SELECT_SHOE_COLOR = (By.CSS_SELECTOR, "div[data-test='@web/VariationComponent']:nth-of-type(2)")
 
 
 @given('Open target product {product_id} page')
@@ -23,7 +23,7 @@ def click_and_verify_colors(context):
     for color in colors:
         color.click()
 
-        selected_color = context.driver.find_element(*SELECT_SHOE_COLOR).text  # 'Color\nBlack'
+        selected_color = context.driver.find_element(*SELECTED_COLOR).text  # 'Color\nBlack'
         print('Current color', selected_color)
 
         selected_color = selected_color.split('\n')[1]  # remove 'Color\n' part, keep Black'
@@ -42,14 +42,14 @@ def click_and_verify_shoes_colors(context):
     for color in colors:
         color.click()
 
-        selected_color = context.driver.find_element(*SELECTED_COLOR).text
+        selected_color = context.driver.find_element(*SELECT_SHOE_COLOR).text
         print('Current color', selected_color)
 
         selected_color = selected_color.split('\n')[1]
         actual_colors.append(selected_color)
         print(actual_colors)
 
-    assert expected_colors in actual_colors, f'Expected {expected_colors} did not match actual {actual_colors}'
+    assert expected_colors == actual_colors, f'Expected {expected_colors} did not match actual {actual_colors}'
 
 
 
