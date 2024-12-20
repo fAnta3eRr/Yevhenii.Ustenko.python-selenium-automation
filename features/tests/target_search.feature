@@ -4,6 +4,7 @@ Feature: Tests for search
     Given Open target main page
     When Search for tea
     Then Verify search result shown for tea
+    Then Verify search term tea in URl
 
   Scenario: User can search for a product
     Given Open target main page
@@ -27,4 +28,8 @@ Feature: Tests for search
     | tide     |
 
 
+  Scenario: Verify that user can see product names and images
+    Given Open target main page
+    When Search for AirPods (3rd Generation)
+    Then Verify that every product has a name and an image
 
