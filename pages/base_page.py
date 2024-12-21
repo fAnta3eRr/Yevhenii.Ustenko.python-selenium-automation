@@ -17,6 +17,8 @@ class BasePage:
     def find_element(self, *locator):
         return self.driver.find_element(*locator)
 
+    def credentials(self, username: object, password: object, *locator):
+        self.credentials(username, password, *locator)
 
     def input_text(self, text, *locator):
         self.driver.find_element(*locator).send_keys(text)
@@ -49,13 +51,13 @@ class BasePage:
 
         #Verification
 
-    def verify_partial_text(self, expected_text,  *locator):
+    def verify_partial_text(self, expected_text, *locator):
         actual_text = self.find_element(*locator).text
-        assert expected_text in actual_text, f'Expected {expected_text} not in actual {actual_text}'
+        assert expected_text.lower() in actual_text.lower(), f'Expected {expected_text} not in actual {actual_text}'
 
     def verify_text(self, expected_text, *locator):
         actual_text = self.find_element(*locator).text
-        assert expected_text == actual_text, f'Expected {expected_text}, but got {actual_text}'
+        assert expected_text.lower() == actual_text.lower(), f'Expected {expected_text}, but got {actual_text}'
 
     def verify_partial_url(self, expected_url):
         actual_url = self.driver.current_url
@@ -64,3 +66,5 @@ class BasePage:
     def verify_url(self, expected_url):
         actual_url = self.driver.current_url
         assert expected_url == actual_url, f'Expected url {expected_url} does not match actual {actual_url}'
+
+

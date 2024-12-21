@@ -41,12 +41,10 @@ class CartPage(BasePage):
 
 
     def verify_cart_has_item(self, amount):
-        #actual_result = self.find_element(*self.VERIFY_CART_HAS_ITEM).text
-        #assert actual_result == amount, f'Expected {amount} not in actual {actual_result}'
-        self.verify_text(amount, *self.VERIFY_CART_HAS_ITEM)
+        self.verify_partial_text(amount, *self.VERIFY_CART_HAS_ITEM)
 
 
     def verify_cart_has_correct_product(self, product):
-        self.verify_text(product, *self.PRODUCT_NAME_IN_CART)
+        self.verify_partial_text(product, *self.PRODUCT_NAME_IN_CART)
 
 

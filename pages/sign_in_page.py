@@ -11,6 +11,7 @@ class SignInPage(BasePage):
     VERIFY_SIGN_IN_Account = (By.CSS_SELECTOR, "button[id='createAccount']")
     CLICK_SIGN_IN = (By.CSS_SELECTOR, "button[data-test='accountNav-signIn']")
     SIDE_NAVIGATION_SIGN_IN = (By.ID, "account-sign-in")
+    CLICK_SIGN_IN_BUTTON = (By.CSS_SELECTOR, "button[type='submit']")
 
 
     def click_sign_in(self):
@@ -23,3 +24,7 @@ class SignInPage(BasePage):
 
     def verify_sign_in_open(self):
         self.verify_text('Create your Target account', *self.VERIFY_SIGN_IN_Account)
+
+
+    def click_sign_in_button(self):
+        self.wait_and_click(*self.CLICK_SIGN_IN_BUTTON)

@@ -38,10 +38,10 @@ def open_cart_page(context):
 
 @then ('Verify cart has at list {amount} item(s)')
 def verify_cart_has_item(context, amount):
-    context.app.cart_product_page.verify_cart_has_item(amount)
     sleep(5)
+    context.app.cart_product_page.verify_cart_has_item(amount)
 
 
 @then ('Verify cart has correct {product}')
 def verify_cart_has_correct_product(context, product):
-    context.app.cart_product_page.verify_cart_has_correct_product()
+    context.app.cart_product_page.verify_cart_has_correct_product(product)

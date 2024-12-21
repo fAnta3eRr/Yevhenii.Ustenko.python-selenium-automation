@@ -6,6 +6,7 @@ from pages.search_product_page import SearchProduct
 from pages.product_details_page import ProductDetails
 from pages.sign_in_page import SignInPage
 from pages.circle_page import CirclePage
+from pages.create_login_page import CreateLogin
 
 
 class Application:
@@ -21,3 +22,4 @@ class Application:
         self.product_details_page = ProductDetails(driver)
         self.sign_in_page = SignInPage(driver)
         self.circle_page = CirclePage(driver)
+        self.create_login_page = CreateLogin(driver)

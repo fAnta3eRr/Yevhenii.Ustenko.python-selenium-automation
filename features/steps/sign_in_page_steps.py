@@ -19,3 +19,17 @@ def navigation_click_sign_in(context):
 def verify_sign_in_open(context):
     context.app.sign_in_page.verify_sign_in_open()
 
+
+@then ('Input {email} and {password} on SignIn page')
+def valid_credentials(context, email, password):
+    context.app.create_login_page.valid_credentials(email, password)
+
+
+@then ('Click Sign in button')
+def click_sign_in_button(context):
+    context.app.sign_in_page.click_sign_in_button()
+
+
+@then ('Verify user is logged in (sign in form should disappear)')
+def verify_sign_in_form_disappear(context):
+    context.app.create_login_page.verify_sign_in_form_disappear()
