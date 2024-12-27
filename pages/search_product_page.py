@@ -2,16 +2,21 @@ from time import sleep
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
+from selenium.webdriver.common.action_chains import ActionChains
+from time import sleep
 
 
 class SearchProduct(BasePage):
 
 
     SEARCH_FIELD = (By.ID, 'search')
-    VERIFY_SEARCH_RESULT = (By.XPATH, "//div[@data-test='resultsHeading']")
     LISTINGS = (By.CSS_SELECTOR, "[data-test*='@web/site-top-of-funnel/ProductCardWrapper']")
     PRODUCT_TITLE = (By.CSS_SELECTOR, "[data-test='product-title']")
     PRODUCT_IMG = (By.CSS_SELECTOR, 'img')
+    PRODUCT_BY_NAME = (By.XPATH, "//div[@data-test='content-wrapper']//h4")
+    FAVORITES_BTN = (By.CSS_SELECTOR, "[data-test='FavoritesButton']")
+    FAVORITES_TOOLTIP_TXT = (By.XPATH, "//*[text()='Click to sign in and save']")
+    SEARCH_RESULTS = (By.XPATH, "//div[@data-test='resultsHeading']")
 
 
     def open_main(self, url):
@@ -19,7 +24,7 @@ class SearchProduct(BasePage):
 
 
     def verify_header_results(self, product):
-        self.verify_text(product, self.VERIFY_SEARCH_RESULT)
+        self.verify_text(product, self.SEARCH_RESULTS)
 
 
     def verify_product_name_img(self):
@@ -37,9 +42,28 @@ class SearchProduct(BasePage):
             # print(title)
             product.find_element(*self.PRODUCT_IMG)
 
-
     def verify_search_url(self, product):
         self.verify_partial_url(product)
+
+
+    def get_product_name(self):
+        return self.find_element(*self.PRODUCT_BY_NAME).text
+
+
+    def hover_favorites_icon(self):
+        #fav_icon = self.find_element(*self.FAVORITES_BTN)
+        #actions = ActionChains(self.driver)
+        #actions.move_to_element(fav_icon)
+        #actions.perform()
+        self.hover_element(*self.FAVORITES_BTN)
+
+
+    def verify_search_results(self, product):
+        self.verify_partial_text(product, *self.SEARCH_RESULTS)
+
+
+    def verify_fav_tooltip(self):
+        self.wait_for_element_visible(*self.FAVORITES_TOOLTIP_TXT)
 
 
 

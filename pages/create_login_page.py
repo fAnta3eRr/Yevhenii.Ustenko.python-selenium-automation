@@ -8,14 +8,17 @@ class CreateLogin(BasePage):
 
 
     VALID_CREDENTIALS = (By.CSS_SELECTOR, "form[method='post'] div")
-    VERIFY_SIGN_IN_FORM_DISAPPEAR = (By.CSS_SELECTOR, "button[id='createAccount']")
+    VERIFY_SIGN_IN_FORM_DISAPPEAR = (By.CSS_SELECTOR, "[for='keepMeSignedIn']")
+    EMAIL_INPUT_FIELD = (By.CSS_SELECTOR, "[id='username']")
+    PASSWORD_FIELD = (By.CSS_SELECTOR, "[data-test='login-password']")
 
 
-    def valid_credentials(self, username, password, *locator):
-        self.valid_credentials('olgatimanovska13@gmail.com', 'Timanovska1308', *self.VALID_CREDENTIALS)
+    def valid_credentials(self, username, password):
+        self.input_text(username, *self.EMAIL_INPUT_FIELD)
+        self.input_text(password, *self.PASSWORD_FIELD)
 
 
     def verify_sign_in_form_disappear(self):
-        self.wait.until(EC.invisibility_of_element_located(*self.VERIFY_SIGN_IN_FORM_DISAPPEAR))
+        self.wait_for_element_invisible(*self.VERIFY_SIGN_IN_FORM_DISAPPEAR)
 
 

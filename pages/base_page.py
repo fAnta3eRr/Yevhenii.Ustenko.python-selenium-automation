@@ -1,5 +1,6 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
 
 
 class BasePage:
@@ -17,11 +18,38 @@ class BasePage:
     def find_element(self, *locator):
         return self.driver.find_element(*locator)
 
-    def credentials(self, username: object, password: object, *locator):
-        self.credentials(username, password, *locator)
 
     def input_text(self, text, *locator):
         self.driver.find_element(*locator).send_keys(text)
+
+    def get_current_window_handle(self):
+            window = self.driver.current_window_handle
+            print('Current window ', window)
+            return window
+
+    def switch_to_new_window(self):
+            self.wait.until(EC.new_window_is_opened)
+            all_windows = self.driver.window_handles
+            print('All windows: ', all_windows)
+            self.driver.switch_to.window(all_windows[1])
+            print('Current window ', self.driver.current_window_handle)
+
+    def switch_to_window_by_id(self, window_id):
+            self.driver.switch_to.window(window_id)
+            print('Current window ', self.driver.current_window_handle)
+
+    def hover_element(self, *locator):
+        element = self.find_element(*locator)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(element)
+        actions.perform()
+
+    def hover_element_and_click(self, *locator):
+        element = self.find_element(*locator)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(element)
+        actions.click()
+        actions.perform()
 
         #Waits
 
@@ -67,4 +95,5 @@ class BasePage:
         actual_url = self.driver.current_url
         assert expected_url == actual_url, f'Expected url {expected_url} does not match actual {actual_url}'
 
-
+    def close(self):
+        self.driver.close()

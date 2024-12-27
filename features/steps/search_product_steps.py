@@ -14,7 +14,6 @@ def search_product(context, product):
     context.app.header_page.search_product('tide')
     sleep(5)
 
-
 @then('Verify search result shown for {product}')
 def verify_header_results(context, product):
     context.app.search_product_page.verify_header_results(product)
@@ -25,11 +24,24 @@ def verify_products_name_img(context):
     context.app.search_product_page.verify_product_name_img()
 
 
-@then('Verify search term {product} in URl')
+@when('Hover favorites icon')
+def hover_favorites_icon(context):
+    context.app.search_product_page.hover_favorites_icon()
+
+
+@then('Verify search results shown for {product}')
+def verify_search_results(context, product):
+    context.app.search_product_page.verify_search_results(product)
+
+
+@then('Verify search term {product} in URL')
 def verify_search_url(context, product):
-    context.app.search_product_page.verify_product(product)
+    context.app.search_product_page.verify_search_url(product)
 
 
+@then('Favorites tooltip is shown')
+def verify_favorites_tooltip(context):
+    context.app.search_product_page.verify_fav_tooltip()
 
 
 

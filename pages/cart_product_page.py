@@ -1,8 +1,6 @@
 from time import sleep
-
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-from home_work2 import expected_result
 from pages.base_page import BasePage
 
 

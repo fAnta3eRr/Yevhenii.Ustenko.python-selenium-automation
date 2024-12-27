@@ -11,6 +11,6 @@ Feature: Test navigate to Sign in form
     Given Open target main page
     When Click Sign in
     Then From right side navigation menu, click Sign in
-    And Input email and password on SignIn page
+    And Input olgatimanovska13@gmail.com and Timanovska1308 on SignIn page
     And Click Sign in button
     Then Verify user is logged in (sign in form should disappear)

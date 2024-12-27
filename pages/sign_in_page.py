@@ -14,6 +14,7 @@ class SignInPage(BasePage):
     CLICK_SIGN_IN_BUTTON = (By.CSS_SELECTOR, "button[type='submit']")
 
 
+
     def click_sign_in(self):
         self.wait_and_click(*self.SIDE_NAVIGATION_SIGN_IN)
 
@@ -28,3 +29,4 @@ class SignInPage(BasePage):
 
     def click_sign_in_button(self):
         self.wait_and_click(*self.CLICK_SIGN_IN_BUTTON)
+
