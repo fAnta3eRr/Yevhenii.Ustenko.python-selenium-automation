@@ -9,7 +9,6 @@ Feature: Tests for Target App page
 #    And Close current page
 #    And Return to original window
 
-
   Scenario: User can open and close Terms and Conditions from sign in page
     Given Open sign in page
     And Store original window
@@ -17,3 +16,5 @@ Feature: Tests for Target App page
     Then Switch to the newly opened window
     Then Verify Terms and Conditions page is opened
     And User can close new window and switch back to original
+
+

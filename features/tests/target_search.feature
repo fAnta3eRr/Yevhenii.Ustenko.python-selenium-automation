@@ -16,7 +16,6 @@ Feature: Tests for search
     When Search for tide
     Then Verify search result shown for tide
 
-
   Scenario Outline: User can search for a product
     Given Open target main page
     When Search for <product>
@@ -27,12 +26,10 @@ Feature: Tests for search
     | forks    |
     | tide     |
 
-
   Scenario: Verify that user can see product names and images
     Given Open target main page
     When Search for AirPods (3rd Generation)
     Then Verify that every product has a name and an image
-
 
   Scenario: User can see favorites tooltip for search results
     Given Open Target main page

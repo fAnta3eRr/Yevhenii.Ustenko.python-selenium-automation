@@ -6,7 +6,6 @@ from pages.search_product_page import SearchProduct
 from pages.product_details_page import ProductDetails
 from pages.sign_in_page import SignInPage
 from pages.circle_page import CirclePage
-from pages.create_login_page import CreateLogin
 from pages.target_app_page import TargetAppPage
 from pages.privacy_policy_page import PrivacyPolicyPage
 from pages.terms_and_conditions import TermsAndConditions
@@ -27,7 +26,6 @@ class Application:
         self.product_details_page = ProductDetails(driver)
         self.sign_in_page = SignInPage(driver)
         self.circle_page = CirclePage(driver)
-        self.create_login_page = CreateLogin(driver)
         self.target_app_page = TargetAppPage(driver)
         self.privacy_policy_page = PrivacyPolicyPage(driver)
         self.terms_and_conditions = TermsAndConditions(driver)

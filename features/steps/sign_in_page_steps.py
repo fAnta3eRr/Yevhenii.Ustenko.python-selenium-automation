@@ -21,8 +21,8 @@ def verify_sign_in_open(context):
 
 
 @then ('Input {email} and {password} on SignIn page')
-def valid_credentials(context, email, password):
-    context.app.create_login_page.valid_credentials(email, password)
+def credentials(context, email, password):
+    context.app.sign_in_page.credentials(email, password)
 
 
 @then ('Click Sign in button')
@@ -32,4 +32,14 @@ def click_sign_in_button(context):
 
 @then ('Verify user is logged in (sign in form should disappear)')
 def verify_sign_in_form_disappear(context):
-    context.app.create_login_page.verify_sign_in_form_disappear()
+    context.app.sign_in_page.verify_sign_in_form_disappear()
+
+
+@then ('Input incorrect credentials {email} and {password} combination')
+def credentials(context, email, password):
+    sleep(4)
+    context.app.sign_in_page.credentials(email, password)
+
+@then ('Verifies that {text} message is shown')
+def incorrect_credentials_notification(context, text):
+    context.app.sign_in_page.incorrect_credentials_notification(text)

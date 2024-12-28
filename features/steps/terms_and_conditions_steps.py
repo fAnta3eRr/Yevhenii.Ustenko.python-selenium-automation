@@ -28,7 +28,7 @@ def verify_terms_and_conditions_opened(context):
 
 @then ('User can close new window and switch back to original')
 def close_and_return_to_original_window(context):
-    context.app.verify_terms_and_conditions_opened.switch_to_window_by_id(context.original_window)
+    context.app.terms_and_conditions.switch_to_window_by_id(context.original_window)
 
 
 
