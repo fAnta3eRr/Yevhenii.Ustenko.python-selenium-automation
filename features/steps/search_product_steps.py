@@ -11,12 +11,13 @@ def open_main(context):
 
 @when('Search for {product}')
 def search_product(context, product):
-    context.app.header_page.search_product('tide')
+    context.app.header_page.search_product(product)
     sleep(5)
 
+
 @then('Verify search result shown for {product}')
-def verify_header_results(context, product):
-    context.app.search_product_page.verify_header_results(product)
+def verify_search_results(context, product):
+    context.app.search_product_page.verify_search_results(product)
 
 
 @then('Verify that every product has a name and an image')
@@ -27,11 +28,6 @@ def verify_products_name_img(context):
 @when('Hover favorites icon')
 def hover_favorites_icon(context):
     context.app.search_product_page.hover_favorites_icon()
-
-
-@then('Verify search results shown for {product}')
-def verify_search_results(context, product):
-    context.app.search_product_page.verify_search_results(product)
 
 
 @then('Verify search term {product} in URL')

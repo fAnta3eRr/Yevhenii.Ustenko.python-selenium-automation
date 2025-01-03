@@ -1,5 +1,6 @@
 Feature: Test for clicks on the cart
 
+  @smoke
   Scenario: User click on the cart icon
     Given Open target main page
     When Click on Cart icon

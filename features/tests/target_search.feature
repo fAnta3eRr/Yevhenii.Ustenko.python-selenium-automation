@@ -16,6 +16,7 @@ Feature: Tests for search
     When Search for tide
     Then Verify search result shown for tide
 
+  @smoke
   Scenario Outline: User can search for a product
     Given Open target main page
     When Search for <product>

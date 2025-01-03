@@ -23,9 +23,6 @@ class SearchProduct(BasePage):
         self.driver.get(url)
 
 
-    def verify_header_results(self, product):
-        self.verify_text(product, self.SEARCH_RESULTS)
-
 
     def verify_product_name_img(self):
         # To see ALL listings (comment out if you only check top ones):

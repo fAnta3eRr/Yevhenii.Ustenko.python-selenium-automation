@@ -34,7 +34,7 @@ class ProductDetails(BasePage):
 
 
     def click_and_verify_shoes_colors(self):
-        expected_colors = ['grey', 'navy/tan', 'white/sand/tan', 'white/navy/red - Out of Stock']
+        expected_colors = ['black/gum', 'dark khaki', 'grey', 'navy/tan', 'white/sand/tan', 'white/navy/red - Out of Stock']
         actual_colors = []
 
         colors = self.driver.find_elements(*self.COLOR_OPTIONS)  # color_elem1, color_elem2, ...
