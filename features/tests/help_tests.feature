@@ -18,3 +18,17 @@ Feature: Tests for Help pages
     Then Verify help Returns page opened
     When Select Help topic Gift Cards
     Then Verify help Target GiftCard balance page opened
+
+    #Extra HomeWork #4
+
+  Scenario: User can see UI elements on the help page
+      Given Open Target help page
+      Then  Verify these 6 UI elements are present in a low box
+
+  Scenario: User can see UI elements on the help page
+      Given Open Target help page
+      Then  Verify these 6 UI elements are present in a tall box
+
+  Scenario: User can see UI elements on the help page
+      Given Open Target help page
+      Then  Verify these 5 UI elements are present in a right box

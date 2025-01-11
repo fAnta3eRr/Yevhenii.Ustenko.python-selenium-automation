@@ -98,7 +98,16 @@ def after_scenario(context, feature):
     context.driver.quit()
 
 
-    #Allure quick start (command in terminal)
+    #(run the tests in terminal)
 
-    #behave -f allure_behave.formatter:AllureFormatter -o test_results/ features/tests/main_page_ui.feature
+    #behave
+    #behave features/tests/cart_tests.feature
+    #behave -t smoke
+
+    # Allure quick start (command in terminal)
+
+    #behave -f allure_behave.formatter:AllureFormatter -o test_results
     #allure serve test_results/
+    
+    #behave -f allure_behave.formatter:AllureFormatter -o %allure_result_folder% ./features
+    # allure serve %allure_result_folder%

@@ -8,6 +8,10 @@ from time import sleep
 def open_main(context):
     context.app.search_product_page.open_main('https://www.target.com/')
 
+@given('Open target help page')
+def open_main(context):
+    context.app.search_product_page.open_main('https://help.target.com/help')
+
 
 @when('Search for {product}')
 def search_product(context, product):
@@ -18,6 +22,7 @@ def search_product(context, product):
 @then('Verify search result shown for {product}')
 def verify_search_results(context, product):
     context.app.search_product_page.verify_search_results(product)
+
 
 
 @then('Verify that every product has a name and an image')
@@ -38,7 +43,6 @@ def verify_search_url(context, product):
 @then('Favorites tooltip is shown')
 def verify_favorites_tooltip(context):
     context.app.search_product_page.verify_fav_tooltip()
-
 
 
 

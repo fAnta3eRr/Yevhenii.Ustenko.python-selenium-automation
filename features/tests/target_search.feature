@@ -37,3 +37,10 @@ Feature: Tests for search
     When Search for tea
     And Hover favorites icon
     Then Favorites tooltip is shown
+
+
+
+
+
+
+

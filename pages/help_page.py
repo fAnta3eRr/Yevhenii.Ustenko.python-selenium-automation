@@ -10,6 +10,10 @@ class HelpPage(BasePage):
     HEADER_TXT = (By.XPATH, "//h1[text()=' {SUBSTRING}']")
     HELP_DD = (By.CSS_SELECTOR, "[id*='ViewHelpTopics']")
 
+    MULTIPLE_ELEMENTS_lOW_BOX = (By.CSS_SELECTOR, "[class*='col'] [class='clear']")
+    MULTIPLE_ELEMENTS_TALL_BOX = (By.CSS_SELECTOR, "[class*='box-column'] [class='grid_6']")
+    MULTIPLE_ELEMENTS_RIGHT_BOX = (By.CSS_SELECTOR, "[class='manageMy'] li")
+
     # Dynamic locator
     def _get_header_locator(self, text):
         # HEADER_TXT = (By.XPATH, "//h1[text()=' {SUBSTRING}']")
@@ -33,3 +37,23 @@ class HelpPage(BasePage):
     #
     # def verify_promotions_opened(self):
     #     self.wait_for_element_visible(*self.HEADER_PROMOTIONS)
+
+
+    #Extra HomeWork №4
+
+    def verify_ui_elements_tall_box(self, elements):
+        found_elements = self.find_elements(*self.MULTIPLE_ELEMENTS_TALL_BOX)
+        assert len(found_elements) == int(elements), f"Expected {found_elements} but, got {elements}"
+
+
+    def verify_ui_elements_low_box(self, elements):
+        found_elements = self.find_elements(*self.MULTIPLE_ELEMENTS_lOW_BOX)
+        assert len(found_elements) == int(elements), f"Expected {found_elements} but, got {elements}"
+
+
+    def verify_ui_elements_right_box(self, elements):
+       found_elements = self.find_elements(*self.MULTIPLE_ELEMENTS_RIGHT_BOX)
+       assert len(found_elements) == int(elements), f"Expected {found_elements} but, got {elements}"
+
+
+
